@@ -1,0 +1,19 @@
+{
+    "name": "estaty/estaty",
+    "description": "Real estate done right",
+    "require": {
+        "silex/silex": "~1.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Haralan Dobrev",
+            "email": "hkdobrev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Estaty\\": "src/"
+        }
+    }
+}
