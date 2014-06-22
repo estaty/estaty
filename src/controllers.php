@@ -1,6 +1,8 @@
 <?php
 
-$app->get('/', function () use ($app) {
+use Estaty\Application;
+
+$app->get('/', function (Application $app) {
     return 'Hello';
 })
     ->bind('homepage');
