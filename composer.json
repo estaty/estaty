@@ -2,7 +2,10 @@
     "name": "estaty/estaty",
     "description": "Real estate done right",
     "require": {
-        "silex/silex": "~1.2"
+        "php": ">=5.4.0",
+        "silex/silex": "~1.2",
+        "symfony/twig-bridge": "~2.5",
+        "twig/twig": "~1.15.1"
     },
     "license": "MIT",
     "authors": [
