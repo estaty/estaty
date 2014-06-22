@@ -4,8 +4,8 @@ namespace Estaty\Controller;
 
 class HomepageController
 {
-    public function show()
+    public function show(\Silex\Application $app)
     {
-        return 'Hello';
+        return $app->render('homepage.html');
     }
 }
