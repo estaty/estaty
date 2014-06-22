@@ -16,6 +16,7 @@ $app['twig.options'] = ['debug' => true, 'cache' => false];
 
 $app->register(new MonologServiceProvider(), array(
     'monolog.logfile' => __DIR__.'/../var/log/silex_dev.log',
+    'monolog.name' => 'estaty'
 ));
 
 $app->register(new WebProfilerServiceProvider(), array(
