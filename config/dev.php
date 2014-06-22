@@ -12,6 +12,8 @@ ini_set('display_errors', 1);
 // enable the debug mode
 $app['debug'] = true;
 
+$app['twig.options'] = ['debug' => true, 'cache' => false];
+
 $app->register(new MonologServiceProvider(), array(
     'monolog.logfile' => __DIR__.'/../var/log/silex_dev.log',
 ));
