@@ -1,8 +1,11 @@
 <?php
 
 use Estaty\Application;
+use Estaty\Controller\HomepageController;
 
-$app->get('/', function (Application $app) {
-    return 'Hello';
-})
+$app['homepage.controller'] = $app->share(function(Silex\Application $app) {
+    return new HomepageController();
+});
+
+$app->get('/', 'homepage.controller:show')
     ->bind('homepage');
