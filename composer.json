@@ -1,15 +1,6 @@
 {
     "name": "estaty/estaty",
     "description": "Real estate done right",
-    "require": {
-        "php": ">=5.4.0",
-        "silex/silex": "~1.2",
-        "symfony/twig-bridge": "~2.5",
-        "twig/twig": "~1.15.1",
-        "monolog/monolog": "~1.9.1",
-        "symfony/monolog-bridge": "~2.5",
-        "silex/web-profiler": "~1.0.3"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -17,6 +8,20 @@
             "email": "hkdobrev@gmail.com"
         }
     ],
+    "require": {
+        "php": ">=5.5.0",
+        "silex/silex": "~1.2",
+        "symfony/twig-bridge": "~2.5",
+        "twig/twig": "~1.15.1",
+        "monolog/monolog": "~1.9.1",
+        "symfony/monolog-bridge": "~2.5",
+        "silex/web-profiler": "~1.0.3",
+        "harp-orm/validate": "dev-master as 0.1.x-dev",
+        "harp-orm/serializer": "dev-master as 0.1.x-dev",
+        "harp-orm/query": "dev-master as 0.1.x-dev",
+        "harp-orm/core": "dev-master as 0.1.x-dev",
+        "harp-orm/harp": "dev-master as 0.1.x-dev"
+    },
     "autoload": {
         "psr-4": {
             "Estaty\\": "src/"
