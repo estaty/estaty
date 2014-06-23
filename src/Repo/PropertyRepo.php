@@ -7,13 +7,8 @@ use Estaty\Model\Property;
 
 class PropertyRepo extends AbstractRepo
 {
-    public static function newInstance()
-    {
-        return new PropertyRepo(Property::class);
-    }
-
     public function initialize()
     {
-
+        $this->setModelClass(Property::class);
     }
 }

@@ -7,6 +7,8 @@ use Estaty\Repo\PropertyRepo;
 
 class Property extends AbstractModel
 {
+    const REPO = 'Estaty\Repo\PropertyRepo';
+
     /**
      * @var integer
      */
@@ -16,12 +18,4 @@ class Property extends AbstractModel
      * @var string
      */
     public $name;
-
-    /**
-     * @return Estaty\Repo\PropetyRepo;
-     */
-    public function getRepo()
-    {
-        return PropertyRepo::get();
-    }
 }
