@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "894acea77395d17ffa85411ce5e71902",
+    "hash": "75bc98135e1010ade8c49c8fb6ea9346",
     "packages": [
         {
             "name": "harp-orm/core",
@@ -11,18 +11,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/core.git",
-                "reference": "2e01641c003fb0dedb0208c8b8634370898ea455"
+                "reference": "090f8bcc6688f0a0e1f25ad33da933606019cade"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/core/zipball/2e01641c003fb0dedb0208c8b8634370898ea455",
-                "reference": "2e01641c003fb0dedb0208c8b8634370898ea455",
+                "url": "https://api.github.com/repos/harp-orm/core/zipball/090f8bcc6688f0a0e1f25ad33da933606019cade",
+                "reference": "090f8bcc6688f0a0e1f25ad33da933606019cade",
                 "shasum": ""
             },
             "require": {
                 "harp-orm/serializer": "~0.1.0",
                 "harp-orm/util": "~0.2.0",
-                "harp-orm/validate": "~0.1.1",
+                "harp-orm/validate": "~0.2.0",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -48,7 +48,7 @@
                 }
             ],
             "description": "DataMapper style ORM Core Componenets",
-            "time": "2014-06-21 23:26:20"
+            "time": "2014-06-23 18:45:49"
         },
         {
             "name": "harp-orm/harp",
@@ -56,19 +56,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/harp.git",
-                "reference": "38ee2d5ac47d1c165fc315ceda570ece27a5f209"
+                "reference": "0abcfb84a3179d6dd27b8618696a1fb84a08559b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/harp/zipball/38ee2d5ac47d1c165fc315ceda570ece27a5f209",
-                "reference": "38ee2d5ac47d1c165fc315ceda570ece27a5f209",
+                "url": "https://api.github.com/repos/harp-orm/harp/zipball/0abcfb84a3179d6dd27b8618696a1fb84a08559b",
+                "reference": "0abcfb84a3179d6dd27b8618696a1fb84a08559b",
                 "shasum": ""
             },
             "require": {
-                "harp-orm/core": "dev-master",
-                "harp-orm/query": "dev-master",
-                "harp-orm/serializer": "dev-master",
-                "harp-orm/validate": "dev-master",
+                "harp-orm/core": "~0.3.1",
+                "harp-orm/query": "~0.2.1",
                 "php": ">=5.4.0",
                 "psr/log": "~1.0"
             },
@@ -91,7 +89,7 @@
                 }
             ],
             "description": "Light and Flexible ORM without magic",
-            "time": "2014-06-19 14:00:35"
+            "time": "2014-06-23 19:27:14"
         },
         {
             "name": "harp-orm/query",
@@ -99,12 +97,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/query.git",
-                "reference": "6a9149eff64b397fade0ca12c75b8f6fcf3a384d"
+                "reference": "940064a69ac18a2b477d495045c177b8f3adb0ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/query/zipball/6a9149eff64b397fade0ca12c75b8f6fcf3a384d",
-                "reference": "6a9149eff64b397fade0ca12c75b8f6fcf3a384d",
+                "url": "https://api.github.com/repos/harp-orm/query/zipball/940064a69ac18a2b477d495045c177b8f3adb0ed",
+                "reference": "940064a69ac18a2b477d495045c177b8f3adb0ed",
                 "shasum": ""
             },
             "require": {
@@ -139,11 +137,11 @@
                 }
             ],
             "description": "SQL Builder for PDO",
-            "time": "2014-06-22 09:47:12"
+            "time": "2014-06-23 11:33:59"
         },
         {
             "name": "harp-orm/serializer",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/serializer.git",
@@ -213,7 +211,7 @@
         },
         {
             "name": "harp-orm/validate",
-            "version": "dev-master",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/validate.git",
@@ -1266,40 +1264,20 @@
     "packages-dev": [],
     "aliases": [
         {
-            "alias": "0.1.x-dev",
-            "alias_normalized": "0.1.9999999.9999999-dev",
-            "version": "9999999-dev",
-            "package": "harp-orm/validate"
-        },
-        {
-            "alias": "0.1.x-dev",
-            "alias_normalized": "0.1.9999999.9999999-dev",
-            "version": "9999999-dev",
-            "package": "harp-orm/serializer"
-        },
-        {
-            "alias": "0.1.x-dev",
-            "alias_normalized": "0.1.9999999.9999999-dev",
+            "alias": "0.2.x-dev",
+            "alias_normalized": "0.2.9999999.9999999-dev",
             "version": "9999999-dev",
             "package": "harp-orm/query"
         },
         {
-            "alias": "0.1.x-dev",
-            "alias_normalized": "0.1.9999999.9999999-dev",
+            "alias": "0.3.x-dev",
+            "alias_normalized": "0.3.9999999.9999999-dev",
             "version": "9999999-dev",
             "package": "harp-orm/core"
-        },
-        {
-            "alias": "0.1.x-dev",
-            "alias_normalized": "0.1.9999999.9999999-dev",
-            "version": "9999999-dev",
-            "package": "harp-orm/harp"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "harp-orm/validate": 20,
-        "harp-orm/serializer": 20,
         "harp-orm/query": 20,
         "harp-orm/core": 20,
         "harp-orm/harp": 20
