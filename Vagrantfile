@@ -5,8 +5,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 PROJECT_NAME = "estaty"
-PROVISION_SCRIPT_PATH = "vagrant-provision/provision.sh"
-PRIVATE_NETWORK_IP = "192.168.99.10"
+PROVISION_SCRIPT_PATH = "provision/provision.sh"
+PRIVATE_NETWORK_IP = "192.168.88.10"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # The hostname the machine should have. Defaults to nil.
   # If nil, Vagrant won't manage the hostname.
   # If set to a string, the hostname will be set on boot.
-  config.vm.hostname = PROJECT_NAME
+  config.vm.hostname = PROJECT_NAME + ".dev"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -40,6 +40,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   config.vm.synced_folder Dir.pwd, "/vagrant", type: "nfs"
 
+  # Cache some dependencies on the host to reduce waiting time
+  # http://fgrehm.viewdocs.io/vagrant-cachier
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :box
+    config.cache.auto_detect = false
+
+    # Enable buckets
+    config.cache.enable :apt
+    config.cache.enable :apt_lists
+    config.cache.enable :composer
+
+    config.cache.synced_folder_opts = {
+      type: :nfs,
+      mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+    }
+  end
+
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # VirtualBox:
@@ -50,7 +67,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "modifyvm", :id,
       "--memory", "1024",
       "--name", PROJECT_NAME.capitalize,
-      "--rtcuseutc", "on",
       "--natdnshostresolver1", "on"
     ]
   end
