@@ -1,13 +1,27 @@
 <?php
 
 use Estaty\Application;
-
+use Symfony\Component\Debug\ErrorHandler;
+use Symfony\Component\Debug\ExceptionHandler;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 // use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 
+// Use Composer autoloader
+require_once __DIR__.'/../vendor/autoload.php';
+
 $app = new Application();
+
+// Load environment and relevant configuration
+$environment = getenv('ESTATY_ENV') ?: 'prod';
+require __DIR__.'/../config/'.$environment.'.php';
+unset($environment);
+
+// http://silex.sensiolabs.org/doc/cookbook/error_handler.html
+ErrorHandler::register();
+ExceptionHandler::register($app['debug']);
+
 $app->register(new UrlGeneratorServiceProvider());
 // $app->register(new ValidatorServiceProvider());
 $app->register(new ServiceControllerServiceProvider());
