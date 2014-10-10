@@ -2,7 +2,7 @@
 
 namespace Estaty\Controller;
 
-use Estaty\Model\Property;
+use Estaty\Property;
 
 class HomepageController
 {
