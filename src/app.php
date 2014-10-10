@@ -13,7 +13,14 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Application();
 
-// Load environment and relevant configuration
+$app->register(new UrlGeneratorServiceProvider());
+// $app->register(new ValidatorServiceProvider());
+$app->register(new ServiceControllerServiceProvider());
+$app->register(new TwigServiceProvider());
+
+// include the default configuration
+require __DIR__.'/../config/default.php';
+
 $environment = getenv('ESTATY_ENV') ?: 'prod';
 require __DIR__.'/../config/'.$environment.'.php';
 unset($environment);
