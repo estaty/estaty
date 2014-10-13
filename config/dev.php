@@ -16,6 +16,8 @@ $app->register(new MonologServiceProvider(), array(
     'monolog.name' => 'estaty'
 ));
 
-$app->register(new WebProfilerServiceProvider(), array(
-    'profiler.cache_dir' => __DIR__.'/../var/cache/profiler',
-));
+if ('cli' !== PHP_SAPI) {
+    $app->register(new WebProfilerServiceProvider(), array(
+        'profiler.cache_dir' => __DIR__.'/../var/cache/profiler',
+    ));
+}
