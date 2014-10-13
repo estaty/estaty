@@ -2,14 +2,14 @@
 
 namespace Estaty\Controller;
 
-use Estaty\Property;
+use Estaty\Model\Property\Apartment\Apartment;
 
 class HomepageController
 {
     public function show(\Silex\Application $app)
     {
-        $property = new Property();
-        $property->name = 'Lovely apartment';
+        $property = new Apartment();
+        $property->setName('Lovely apartment');
 
         return $app->render('homepage.html.twig', array(
             'property' => $property
