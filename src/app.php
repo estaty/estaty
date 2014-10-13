@@ -21,6 +21,7 @@ $app->register(new TwigServiceProvider());
 // include the default configuration
 require __DIR__.'/../config/default.php';
 
+// Load environment and relevant configuration
 $environment = getenv('ESTATY_ENV') ?: 'prod';
 require __DIR__.'/../config/'.$environment.'.php';
 unset($environment);
@@ -28,15 +29,5 @@ unset($environment);
 // http://silex.sensiolabs.org/doc/cookbook/error_handler.html
 ErrorHandler::register();
 ExceptionHandler::register($app['debug']);
-
-$app->register(new UrlGeneratorServiceProvider());
-// $app->register(new ValidatorServiceProvider());
-$app->register(new ServiceControllerServiceProvider());
-$app->register(new TwigServiceProvider());
-// $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
-//     // add custom globals, filters, tags, ...
-
-//     return $twig;
-// }));
 
 return $app;
