@@ -7,24 +7,23 @@ use Estaty\Application;
 /**
  * @coversDefaultClass Estaty\Application
  */
-class ApplicationTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends TestCase
 {
     /**
      * @coversNothing
      */
     public function testApplicationHasUrlGeneratorTrait()
     {
-        $application = new Application();
         $this->assertTrue(
-            method_exists($application, 'path'),
+            method_exists($this->app, 'path'),
             'Failed asserting Estaty\Application has the path method'
         );
         $this->assertTrue(
-            method_exists($application, 'url'),
+            method_exists($this->app, 'url'),
             'Failed asserting Estaty\Application has the url method'
         );
 
-        $usedTraits = class_uses($application);
+        $usedTraits = class_uses($this->app);
         $this->assertArrayHasKey('Silex\Application\UrlGeneratorTrait', $usedTraits);
     }
 
@@ -33,13 +32,12 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
      */
     public function testApplicationHasTwigTrait()
     {
-        $application = new Application();
         $this->assertTrue(
-            method_exists($application, 'render'),
+            method_exists($this->app, 'render'),
             'Failed asserting Estaty\Application has the render method'
         );
 
-        $usedTraits = class_uses($application);
+        $usedTraits = class_uses($this->app);
         $this->assertArrayHasKey('Silex\Application\TwigTrait', $usedTraits);
     }
 }
