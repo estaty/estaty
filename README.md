@@ -1,4 +1,26 @@
-estaty
+Estaty
 ======
 
 Real estate done right.
+
+This is a toy project in active development.
+
+Develop
+-----------
+
+1. Clone the project.
+1. Install Vagrant and VirtualBox.
+1. Run `vagrant up`
+1. Add dev domain to hosts file:  
+   `echo "192.168.88.10 estaty.dev test.estaty.dev" | sudo tee -a /etc/hosts`
+1. Open http://estaty.dev in your browser.
+
+Author
+---------
+
+Author of Estaty is [Haralan Dobrev](http://hkdobrev.com)
+
+License
+----------
+
+Estaty is licensed under MIT license. See the [LICENSE](LICENSE) file.
