@@ -1,6 +1,8 @@
 Estaty
 ======
 
+[![Travis CI build status](https://api.travis-ci.org/estaty/estaty.svg?branch=master)](https://travis-ci.org/estaty/estaty)
+
 Real estate done right.
 
 This is a toy project in active development.

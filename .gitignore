@@ -7,3 +7,7 @@ vendor/
 
 # Vagrant system folder
 .vagrant/
+
+# You could override phpunit.xml.dist in your own phpunit.xml and PHPUnit will
+# use your overridden settings from phpunit.xml.
+/phpunit.xml
