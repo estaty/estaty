@@ -11,3 +11,6 @@ vendor/
 # You could override phpunit.xml.dist in your own phpunit.xml and PHPUnit will
 # use your overridden settings from phpunit.xml.
 /phpunit.xml
+
+# Use build/ for PHPUnit code coverage and other build and test related files
+/build/
