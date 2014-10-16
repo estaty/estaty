@@ -3,7 +3,7 @@
 use Estaty\Application;
 use Estaty\Controller\HomepageController;
 
-$app['homepage.controller'] = $app->share(function(Silex\Application $app) {
+$app['homepage.controller'] = $app->share(function() {
     return new HomepageController();
 });
 
