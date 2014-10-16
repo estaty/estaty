@@ -25,6 +25,10 @@
    <filter>
       <whitelist processUncoveredFilesFromWhitelist="true">
          <directory suffix=".php">src</directory>
+         <exclude>
+             <file>src/app.php</file>
+             <file>src/controllers.php</file>
+         </exclude>
       </whitelist>
    </filter>
 </phpunit>
