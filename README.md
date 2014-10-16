@@ -1,7 +1,7 @@
 Estaty
 ======
 
-[![Travis CI build status](https://api.travis-ci.org/estaty/estaty.svg?branch=master)](https://travis-ci.org/estaty/estaty)
+[![Travis CI build status](https://api.travis-ci.org/estaty/estaty.svg?branch=master)](https://travis-ci.org/estaty/estaty) [![Code Coverage](https://scrutinizer-ci.com/g/estaty/estaty/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/estaty/estaty/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/estaty/estaty/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/estaty/estaty/?branch=master)
 
 Real estate done right.
 
