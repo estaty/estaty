@@ -12,4 +12,6 @@ install: composer install --optimize-autoloader --no-interaction
 
 before_script: mysql -e 'create database `estaty_test`;'
 
-script: phpunit
+script: phpunit --coverage-clover=coverage.clover
+
+after_script: [ -f coverage.clover ] && wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover coverage.clover
