@@ -1,4 +1,4 @@
-language: php
+    language: php
 
 php:
   - 5.4
@@ -8,7 +8,7 @@ php:
 
 before_install: composer self-update
 
-install: composer install --no-dev --optimize-autoloader --no-interaction
+install: composer install --optimize-autoloader --no-interaction
 
 before_script: mysql -e 'create database `estaty_test`;'
 
