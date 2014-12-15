@@ -67,7 +67,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "modifyvm", :id,
       "--memory", "1024",
       "--name", PROJECT_NAME.capitalize,
-      "--natdnshostresolver1", "on"
+      "--natdnshostresolver1", "on",
+      "--natdnsproxy1", "on"
     ]
   end
   #
