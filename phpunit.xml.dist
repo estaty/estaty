@@ -3,7 +3,6 @@
    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.3/phpunit.xsd"
    backupGlobals="true"
    backupStaticAttributes="false"
-   bootstrap="tests/bootstrap.php"
    colors="true"
    convertErrorsToExceptions="true"
    convertNoticesToExceptions="true"
@@ -33,5 +32,8 @@
    </filter>
    <php>
        <env name="ESTATY_ENV" value="test"/>
+       <ini name="display_errors" value="1"/>
+       <ini name="error_reporting" value="32767"/>
+       <ini name="date.timezone" value="UTC"/>
    </php>
 </phpunit>

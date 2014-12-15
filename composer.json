@@ -16,11 +16,22 @@
         "doctrine/orm": "~2.4.6"
     },
     "require-dev": {
-        "silex/web-profiler": "~1.0.3"
+        "silex/web-profiler": "~1.0.3",
+        "phpunit/phpunit": "~4.4"
     },
     "autoload": {
         "psr-4": {
             "Estaty\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Estaty\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html=build/coverage",
+        "test-ci": "phpunit --coverage-clover=build/coverage.clover"
     }
 }
