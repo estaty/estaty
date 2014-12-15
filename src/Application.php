@@ -8,4 +8,5 @@ class Application extends SilexApplication
 {
     use SilexApplication\UrlGeneratorTrait;
     use SilexApplication\TwigTrait;
+    use SilexApplication\MonologTrait;
 }

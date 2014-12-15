@@ -9,5 +9,5 @@ $app['twig.options'] = ['debug' => false, 'cache' => false];
 
 $app->register(new MonologServiceProvider(), array(
     'monolog.logfile' => __DIR__.'/../var/log/silex_test.log',
-    'monolog.name' => 'estaty.test'
+    'monolog.name' => 'estaty'
 ));
