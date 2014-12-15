@@ -1,12 +1,12 @@
-composer.phar
-vendor/
+/composer.phar
+/vendor/
 
 # Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
 # composer.lock
 
 # Vagrant system folder
-.vagrant/
+/.vagrant/
 
 # You could override phpunit.xml.dist in your own phpunit.xml and PHPUnit will
 # use your overridden settings from phpunit.xml.
@@ -14,3 +14,7 @@ vendor/
 
 # Use build/ for PHPUnit code coverage and other build and test related files
 /build/
+
+# Ignore caches and logs here
+# .gitkeep files may be explicitly committed to preserve directory structure
+/var/
