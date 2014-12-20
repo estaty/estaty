@@ -13,7 +13,9 @@
         "silex/silex": "~1.2",
         "twig/twig": "~1.15.1",
         "monolog/monolog": "~1.9.1",
-        "doctrine/orm": "~2.4.6"
+        "doctrine/orm": "~2.4.6",
+        "doctrine/migrations": "1.0.*@dev",
+        "kurl/silex-doctrine-migrations-provider": "0.1.*"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.3",

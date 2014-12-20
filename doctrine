@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Application;
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+
+// Use Composer autoloader
+require_once __DIR__.'/vendor/autoload.php';
+
+$helperSet = require_once __DIR__.'/config/cli-config.php';
+
+// replace the ConsoleRunner::run() statement with:
+$cli = new Application('Doctrine Command Line Interface', \Doctrine\ORM\Version::VERSION);
+$cli->setCatchExceptions(true);
+$cli->setHelperSet($helperSet);
+
+$app->register(new \Kurl\Silex\Provider\DoctrineMigrationsProvider($cli), array(
+    'migrations.directory'  => __DIR__ . '/migrations',
+    'migrations.name'       => 'Estaty Migrations',
+    'migrations.namespace'  => 'Estaty\Migrations',
+    'migrations.table_name' => 'migrations',
+));
+
+
+// Register All Doctrine Commands
+ConsoleRunner::addCommands($cli);
+
+$app->boot();
+
+// Runs console application
+$cli->run();

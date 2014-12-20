@@ -5,7 +5,7 @@ namespace Estaty\Model\Property;
 /**
  * @Entity @Table(name="property")
  * @InheritanceType("SINGLE_TABLE")
- * @DiscriminatorColumn(name="type", type="string")
+ * @DiscriminatorColumn(name="type")
  */
 abstract class Property
 {
@@ -21,6 +21,8 @@ abstract class Property
      */
     protected $name;
 
+    protected $type;
+
     public function getId()
     {
         return $this->id;
@@ -29,6 +31,11 @@ abstract class Property
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
