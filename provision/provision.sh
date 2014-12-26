@@ -16,7 +16,7 @@ sudo locale-gen --purge en_US.UTF-8.1 >/dev/null
 
 # Update apt get repositories
 sudo apt-get install --assume-yes --force-yes python-software-properties
-sudo add-apt-repository ppa:ondrej/php5
+sudo add-apt-repository ppa:ondrej/php5-5.6
 sudo apt-get update
 
 # Set answers for mysql-server
