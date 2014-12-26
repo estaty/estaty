@@ -21,10 +21,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # If set to a string, the hostname will be set on boot.
   config.vm.hostname = PROJECT_NAME + ".dev"
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  # Disable default SSH port forwarding and set up auto correct
+  config.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", disabled: true
+  config.vm.network :forwarded_port, guest: 22, host: 2230, auto_correct: true
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
