@@ -15,7 +15,16 @@
         "monolog/monolog": "~1.9.1",
         "doctrine/orm": "~2.4.6",
         "doctrine/migrations": "1.0.*@dev",
-        "kurl/silex-doctrine-migrations-provider": "0.1.*"
+        "kurl/silex-doctrine-migrations-provider": "0.1.*",
+        "gigablah/silex-oauth": "0.1.*",
+        "symfony/form": "~2.3",
+        "symfony/security": "~2.3",
+        "lusitanian/oauth": "0.3.*",
+        "ircmaxell/password-compat": "~1.0",
+        "symfony/translation": "~2.6",
+        "symfony/validator": "~2.6",
+        "symfony/doctrine-bridge": "~2.6",
+        "symfony/config": "~2.6"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.3",
