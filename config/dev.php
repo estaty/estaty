@@ -11,10 +11,10 @@ $app['debug'] = true;
 
 $app['twig.options'] = ['debug' => true, 'cache' => false];
 
-$app->register(new MonologServiceProvider(), array(
+$app->register(new MonologServiceProvider(), [
     'monolog.logfile' => __DIR__.'/../var/log/silex_dev.log',
     'monolog.name' => 'estaty'
-));
+]);
 
 if ('cli' !== PHP_SAPI) {
     $app->register(new WebProfilerServiceProvider(), array(

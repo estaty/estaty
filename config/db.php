@@ -4,12 +4,12 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 // the connection configuration
-$app['db.options'] = array(
+$app['db.options'] = [
     'driver'   => 'pdo_mysql',
     'user'     => 'vagrant',
     'password' => null,
     'dbname'   => 'estaty',
-);
+];
 
 $paths = [__DIR__.'/../src/Model'];
 $isDevMode = !empty($app['debug']);
