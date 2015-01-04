@@ -4,9 +4,9 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 if (file_exists(__DIR__.'/secret/db.'.$app['env'].'.php')) {
-    include __DIR__.'/secret/db.'.$app['env'].'.php';
+    include_once __DIR__.'/secret/db.'.$app['env'].'.php';
 } else {
-    include __DIR__.'/secret/db.php';
+    include_once __DIR__.'/secret/db.php';
 }
 
 // the connection configuration

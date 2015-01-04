@@ -8,15 +8,15 @@ use Gigablah\Silex\OAuth\OAuthServiceProvider;
 use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
 
 if (file_exists(__DIR__.'/secret/auth.'.$app['env'].'.php')) {
-    include __DIR__.'/secret/auth.'.$app['env'].'.php';
+    include_once __DIR__.'/secret/auth.'.$app['env'].'.php';
 } else {
-    include __DIR__.'/secret/auth.php';
+    include_once __DIR__.'/secret/auth.php';
 }
 
 if (file_exists(__DIR__.'/secret/form.'.$app['env'].'.php')) {
-    include __DIR__.'/secret/form.'.$app['env'].'.php';
+    include_once __DIR__.'/secret/form.'.$app['env'].'.php';
 } else {
-    include __DIR__.'/secret/form.php';
+    include_once __DIR__.'/secret/form.php';
 }
 $app->register(new OAuthServiceProvider(), [
     'oauth.services' => [
