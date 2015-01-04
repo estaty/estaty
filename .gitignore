@@ -18,3 +18,6 @@
 # Ignore caches and logs here
 # .gitkeep files may be explicitly committed to preserve directory structure
 /var/
+
+# Ignore secret configuration unless explicitly staged and committed
+/config/secret/

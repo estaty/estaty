@@ -41,10 +41,3 @@ $app->register(new ValidatorServiceProvider(), [
         ]);
     }),
 ]);
-
-// Load environment and relevant configuration
-$environment = getenv('ESTATY_ENV') ?: 'prod';
-require __DIR__.'/../config/'.$environment.'.php';
-unset($environment);
-
-require 'errors.php';
