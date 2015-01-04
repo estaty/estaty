@@ -16,7 +16,7 @@ class User implements UserInterface
     const GOOGLE   = 'google';
     const GITHUB   = 'github';
 
-    const SUPPORTED_OAUTH_SERVICES = [
+    private static $SUPPORTED_OAUTH_SERVICES = [
         self::FACEBOOK,
         self::GOOGLE,
         self::GITHUB,
@@ -230,7 +230,7 @@ class User implements UserInterface
      */
     public function supportsOAuthService($serviceName)
     {
-        return in_array($serviceName, self::SUPPORTED_OAUTH_SERVICES);
+        return in_array($serviceName, self::$SUPPORTED_OAUTH_SERVICES);
     }
 
     public function getOAuthServiceUid($serviceName)
