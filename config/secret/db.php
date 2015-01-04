@@ -1,6 +1,6 @@
 <?php
 
-define('DB_DRIVER', '');
-define('DB_USER', '');
-define('DB_PASSWORD', '');
-define('DB_NAME', '');
+define('DB_DRIVER', 'pdo_mysql');
+define('DB_USER', 'vagrant');
+define('DB_PASSWORD', null);
+define('DB_NAME', 'estaty');
