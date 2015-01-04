@@ -8,6 +8,10 @@ php:
   - 5.6
   - hhvm
 
+branches:
+  only:
+    - master
+
 cache:
   directories:
     - $HOME/.composer/cache
