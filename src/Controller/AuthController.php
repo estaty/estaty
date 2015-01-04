@@ -7,19 +7,17 @@ use Estaty\Application;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class AuthController
 {
     /**
-     * @var Estaty\Application
+     * @var Application
      */
     private $app;
 
     /**
-     * @param Estaty\Application $app
+     * @param Application $app
      */
     public function __construct(Application $app)
     {
