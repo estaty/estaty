@@ -1,0 +1,23 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Log In to Contribute{% endblock %}
+
+{% block content %}
+<div>
+  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <p>Hello {{ app.user.username }}! Your email is {{ app.user.email }}</p>
+    <a href="{{ logout_path }}">Logout</a>
+  {% else %}
+    <ul>
+      <li><a href="{{ login_paths.facebook }}">Log in with Facebook</a></li>
+      <li><a href="{{ login_paths.google }}">Log in with Google</a></li>
+      <li><a href="{{ login_paths.github }}">Log in with GitHub</a></li>
+    </ul>
+    {{ form_start(loginSignupForm) }}
+    {{ error }}
+    {{ form_errors(loginSignupForm) }}
+    {{ form_widget(loginSignupForm) }}
+    {{ form_end(loginSignupForm) }}
+  {% endif %}
+</div>
+{% endblock %}

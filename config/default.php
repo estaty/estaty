@@ -1,8 +1,11 @@
 <?php
 
-use Silex\Provider\UrlGeneratorServiceProvider;
-use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\TranslationServiceProvider;
+use Silex\Provider\UrlGeneratorServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
+
+$app['route_class'] = '\\Estaty\\Route';
 
 require 'twig.php';
 require 'db.php';
