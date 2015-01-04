@@ -48,7 +48,10 @@ class UniqueEntityValidator extends ConstraintValidator
     public function validate($entity, Constraint $constraint)
     {
         if (!$constraint instanceof UniqueEntity) {
-            throw new UnexpectedTypeException($constraint, 'Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity');
+            throw new UnexpectedTypeException(
+                $constraint,
+                'Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity'
+            );
         }
 
         if (!is_array($constraint->fields) && !is_string($constraint->fields)) {
@@ -65,13 +68,22 @@ class UniqueEntityValidator extends ConstraintValidator
             throw new ConstraintDefinitionException('At least one field has to be specified.');
         }
 
+        /**
+         * @var \Doctrine\Common\Persistence\Mapping\ClassMetadata
+         */
         $class = $this->em->getClassMetadata(get_class($entity));
-        /* @var $class \Doctrine\Common\Persistence\Mapping\ClassMetadata */
+
+        if (!$class instanceof \Doctrine\ORM\Mapping\ClassMetadataInfo) {
+            throw new ConstraintDefinitionException('Entity does not use a supported metadata class.');
+        }
 
         $criteria = array();
         foreach ($fields as $fieldName) {
             if (!$class->hasField($fieldName) && !$class->hasAssociation($fieldName)) {
-                throw new ConstraintDefinitionException(sprintf("The field '%s' is not mapped by Doctrine, so it cannot be validated for uniqueness.", $fieldName));
+                throw new ConstraintDefinitionException(sprintf(
+                    'The field "%s" is not mapped by Doctrine, so it cannot be validated for uniqueness.',
+                    $fieldName
+                ));
             }
 
             $criteria[$fieldName] = $class->reflFields[$fieldName]->getValue($entity);
@@ -92,8 +104,8 @@ class UniqueEntityValidator extends ConstraintValidator
 
                 if (count($relatedId) > 1) {
                     throw new ConstraintDefinitionException(
-                        "Associated entities are not allowed to have more than one identifier field to be ".
-                        "part of a unique constraint in: ".$class->getName()."#".$fieldName
+                        'Associated entities are not allowed to have more than one identifier field to be '.
+                        'part of a unique constraint in: '.$class->getName().'#'.$fieldName
                     );
                 }
                 $criteria[$fieldName] = array_pop($relatedId);
@@ -117,7 +129,8 @@ class UniqueEntityValidator extends ConstraintValidator
          * which is the same as the entity being validated, the criteria is
          * unique.
          */
-        if (0 === count($result) || (1 === count($result) && $entity === ($result instanceof \Iterator ? $result->current() : current($result)))) {
+        if (0 === count($result) || (1 === count($result)
+            && $entity === ($result instanceof \Iterator ? $result->current() : current($result)))) {
             return;
         }
 

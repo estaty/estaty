@@ -236,7 +236,7 @@ class User implements UserInterface
     public function getOAuthServiceUid($serviceName)
     {
         if (!$this->supportsOAuthService($serviceName)) {
-            throw new \BadArgumentException(sprintf(
+            throw new \OutOfBoundsException(sprintf(
                 '%s is not a supported OAuth service',
                 $serviceName
             ));
@@ -248,7 +248,7 @@ class User implements UserInterface
     public function setOAuthServiceUid($serviceName, $uid)
     {
         if (!$this->supportsOAuthService($serviceName)) {
-            throw new \BadArgumentException(sprintf(
+            throw new \OutOfBoundsException(sprintf(
                 '%s is not a supported OAuth service',
                 $serviceName
             ));
