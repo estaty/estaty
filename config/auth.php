@@ -18,7 +18,6 @@ if (file_exists(__DIR__.'/secret/form.'.$app['env'].'.php')) {
 } else {
     include __DIR__.'/secret/form.php';
 }
-
 $app->register(new OAuthServiceProvider(), [
     'oauth.services' => [
         User::FACEBOOK => [
