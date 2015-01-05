@@ -34,7 +34,7 @@ $app->register(new TranslationServiceProvider(), [
 ]);
 
 $app['validator.unique'] = $app->share(function($app) {
-    return new Estaty\Validator\Constraints\UniqueEntityValidator($app['orm.em']);
+    return new Estaty\Validator\Constraints\UniqueEntityValidator($app);
 });
 
 $app->register(new ValidatorServiceProvider(), [

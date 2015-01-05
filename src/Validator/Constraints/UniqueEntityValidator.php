@@ -26,16 +26,16 @@ use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
 class UniqueEntityValidator extends ConstraintValidator
 {
     /**
-     * @var EntityManager
+     * @var Pimple
      */
-    private $em;
+    private $container;
 
     /**
-     * @param EntityManager $entityManager
+     * @param Pimple $container
      */
-    public function __construct(EntityManager $entityManager)
+    public function __construct(\Pimple $container)
     {
-        $this->em = $entityManager;
+        $this->container = $container;
     }
 
     /**
@@ -54,11 +54,11 @@ class UniqueEntityValidator extends ConstraintValidator
             );
         }
 
-        if (!is_array($constraint->fields) && !is_string($constraint->fields)) {
+        if (false === is_array($constraint->fields) && false === is_string($constraint->fields)) {
             throw new UnexpectedTypeException($constraint->fields, 'array');
         }
 
-        if (null !== $constraint->errorPath && !is_string($constraint->errorPath)) {
+        if (null !== $constraint->errorPath && false === is_string($constraint->errorPath)) {
             throw new UnexpectedTypeException($constraint->errorPath, 'string or null');
         }
 
@@ -69,9 +69,14 @@ class UniqueEntityValidator extends ConstraintValidator
         }
 
         /**
+         * @var Doctrine\ORM\EnityManager
+         */
+        $em = $this->container['orm.em'];
+
+        /**
          * @var \Doctrine\Common\Persistence\Mapping\ClassMetadata
          */
-        $class = $this->em->getClassMetadata(get_class($entity));
+        $class = $em->getClassMetadata(get_class($entity));
 
         if (!$class instanceof \Doctrine\ORM\Mapping\ClassMetadataInfo) {
             throw new ConstraintDefinitionException('Entity does not use a supported metadata class.');
@@ -79,7 +84,7 @@ class UniqueEntityValidator extends ConstraintValidator
 
         $criteria = array();
         foreach ($fields as $fieldName) {
-            if (!$class->hasField($fieldName) && !$class->hasAssociation($fieldName)) {
+            if (false === $class->hasField($fieldName) && false === $class->hasAssociation($fieldName)) {
                 throw new ConstraintDefinitionException(sprintf(
                     'The field "%s" is not mapped by Doctrine, so it cannot be validated for uniqueness.',
                     $fieldName
@@ -88,31 +93,32 @@ class UniqueEntityValidator extends ConstraintValidator
 
             $criteria[$fieldName] = $class->reflFields[$fieldName]->getValue($entity);
 
-            if ($constraint->ignoreNull && null === $criteria[$fieldName]) {
+            if (true === $constraint->ignoreNull && null === $criteria[$fieldName]) {
                 return;
             }
 
-            if (null !== $criteria[$fieldName] && $class->hasAssociation($fieldName)) {
+            if (null !== $criteria[$fieldName] && true === $class->hasAssociation($fieldName)) {
                 /* Ensure the Proxy is initialized before using reflection to
                  * read its identifiers. This is necessary because the wrapped
                  * getter methods in the Proxy are being bypassed.
                  */
-                $this->em->initializeObject($criteria[$fieldName]);
+                $em->initializeObject($criteria[$fieldName]);
 
-                $relatedClass = $this->em->getClassMetadata($class->getAssociationTargetClass($fieldName));
+                $relatedClass = $em->getClassMetadata($class->getAssociationTargetClass($fieldName));
                 $relatedId = $relatedClass->getIdentifierValues($criteria[$fieldName]);
 
                 if (count($relatedId) > 1) {
-                    throw new ConstraintDefinitionException(
-                        'Associated entities are not allowed to have more than one identifier field to be '.
-                        'part of a unique constraint in: '.$class->getName().'#'.$fieldName
-                    );
+                    throw new ConstraintDefinitionException(sprintf(
+                        'Associated entities are not allowed to have more than one identifier field to be part of a unique constraint in: %s#%s',
+                        $class->getName(),
+                        $fieldName
+                    ));
                 }
                 $criteria[$fieldName] = array_pop($relatedId);
             }
         }
 
-        $repository = $this->em->getRepository(get_class($entity));
+        $repository = $em->getRepository(get_class($entity));
         $result = $repository->{$constraint->repositoryMethod}($criteria);
 
         /* If the result is a MongoCursor, it must be advanced to the first
@@ -121,7 +127,7 @@ class UniqueEntityValidator extends ConstraintValidator
          */
         if ($result instanceof \Iterator) {
             $result->rewind();
-        } elseif (is_array($result)) {
+        } elseif (true === is_array($result)) {
             reset($result);
         }
 
