@@ -27,6 +27,7 @@
          <exclude>
              <file>src/app.php</file>
              <file>src/controllers.php</file>
+             <file>src/Validator/Constraints/UniqueEntityValidator.php</file>
          </exclude>
       </whitelist>
    </filter>
