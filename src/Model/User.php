@@ -279,6 +279,9 @@ class User implements UserInterface
         return $this->email;
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function eraseCredentials()
     {
 
