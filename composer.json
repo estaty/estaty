@@ -29,7 +29,7 @@
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.3",
-        "phpunit/phpunit": "~4.4"
+        "phpunit/phpunit": "~4.6@dev"
     },
     "autoload": {
         "psr-4": {
@@ -42,8 +42,8 @@
         }
     },
     "scripts": {
-        "test": "phpunit",
-        "test-coverage": "phpunit --coverage-html=build/coverage",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --coverage-html=build/coverage --colors=always",
         "test-ci": "phpunit --coverage-clover=build/coverage.clover"
     }
 }
