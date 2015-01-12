@@ -110,7 +110,7 @@ class UniqueEntityValidator extends ConstraintValidator
 
                 if (count($relatedId) > 1) {
                     throw new ConstraintDefinitionException(sprintf(
-                        'Associated entities are not allowed to have more than one'.
+                        'Associated entities are not allowed to have more than one'
                         .'identifier field to be part of a unique constraint in: %s#%s',
                         $class->getName(),
                         $fieldName
