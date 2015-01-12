@@ -11,6 +11,7 @@
 
 namespace Estaty\Validator\Constraints;
 
+use Pimple;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -33,7 +34,7 @@ class UniqueEntityValidator extends ConstraintValidator
     /**
      * @param Pimple $container
      */
-    public function __construct(\Pimple $container)
+    public function __construct(Pimple $container)
     {
         $this->container = $container;
     }
