@@ -84,14 +84,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface, 
         $user = $this->loadUserByEmail($token->getEmail());
 
         if (null === $user) {
-            // Create users from OAuth services automatically
-            $user = new User(
-                null,
-                $token->getEmail(),
-                null,
-                $token->getUser(),
-                ['ROLE_USER']
-            );
+            $user = $this->createUserFromOAuthToken($token);
         }
 
         $user->setOAuthServiceUid($token->getService(), $token->getUid());
@@ -106,5 +99,22 @@ class UserRepository extends EntityRepository implements UserProviderInterface, 
     private function loadUserByEmail($email)
     {
         return $this->findOneBy(['email' => $email]);
+    }
+
+    /**
+     * Create users from OAuth services automatically
+     *
+     * @param  OAuthTokenInterface $token
+     * @return User
+     */
+    private function createUserFromOAuthToken(OAuthTokenInterface $token)
+    {
+        return new User(
+            null,
+            $token->getEmail(),
+            null,
+            $token->getUser(),
+            ['ROLE_USER']
+        );
     }
 }
