@@ -29,7 +29,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface, 
             throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $username));
         }
 
-        return new User($user->getId(), $user->getEmail(), $user->getPassword(), $user->getName(), $user->getRoles());
+        return $user;
     }
 
     /**
