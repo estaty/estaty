@@ -96,7 +96,11 @@ class UserRepository extends EntityRepository implements UserProviderInterface, 
         return $user;
     }
 
-    private function loadUserByEmail($email)
+    /**
+     * @param  string $email
+     * @return User|null
+     */
+    public function loadUserByEmail($email)
     {
         return $this->findOneBy(['email' => $email]);
     }
