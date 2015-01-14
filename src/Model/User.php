@@ -245,6 +245,10 @@ class User implements UserInterface
         return $this->{'get'.ucfirst($serviceName).'Uid'}();
     }
 
+    /**
+     * @param string $serviceName
+     * @param string $uid
+     */
     public function setOAuthServiceUid($serviceName, $uid)
     {
         if (!$this->supportsOAuthService($serviceName)) {
