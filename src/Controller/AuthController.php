@@ -71,6 +71,7 @@ class AuthController
 
         $encodedPassword = $this->app->encodePassword($user, $user->getPassword());
         $user->setPassword($encodedPassword);
+        $user->setRoles(['ROLE_USER']);
 
         /**
          * @var Doctrine\ORM\EntityManager
