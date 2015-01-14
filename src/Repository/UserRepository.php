@@ -81,19 +81,40 @@ class UserRepository extends EntityRepository implements UserProviderInterface, 
      */
     public function loadUserByOAuthCredentials(OAuthTokenInterface $token)
     {
-        $user = $this->loadUserByEmail($token->getEmail());
+        // Find user by OAuth UID first
+        $user = $this->loadUserByOAuthUid($token->getService(), $token->getUid());
 
+        if (null !== $user) {
+            return $user;
+        }
+
+        // If there is no such user, try the email from the token
+        if (method_exists($token, 'getEmail')) {
+            $user = $this->loadUserByEmail($token->getEmail());
+
+            // Set the OAuth UID
+            if (null !== $user) {
+                $user->setOAuthServiceUid($token->getService(), $token->getUid());
+            }
+        }
+
+        // If there is no such user, create one from the token
         if (null === $user) {
             $user = $this->createUserFromOAuthToken($token);
         }
-
-        $user->setOAuthServiceUid($token->getService(), $token->getUid());
 
         $em = $this->getEntityManager();
         $em->persist($user);
         $em->flush();
 
         return $user;
+    }
+
+    public function loadUserByOAuthUid($service, $uid)
+    {
+        return $this->findOneBy([
+            $service.'Uid' => $uid,
+        ]);
     }
 
     /**
@@ -113,12 +134,16 @@ class UserRepository extends EntityRepository implements UserProviderInterface, 
      */
     private function createUserFromOAuthToken(OAuthTokenInterface $token)
     {
-        return new User(
+        $user = new User(
             null,
             $token->getEmail(),
             null,
             $token->getUser(),
             ['ROLE_USER']
         );
+
+        $user->setOAuthServiceUid($token->getService(), $token->getUid());
+
+        return $user;
     }
 }
