@@ -110,6 +110,10 @@ class UserRepository extends EntityRepository implements UserProviderInterface, 
         return $user;
     }
 
+    /**
+     * @param string $service
+     * @param string $uid
+     */
     public function loadUserByOAuthUid($service, $uid)
     {
         return $this->findOneBy([
