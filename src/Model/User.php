@@ -54,19 +54,19 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @Column(type="string", nullable=true)
+     * @Column(type="string", nullable=true, unique=true)
      * @var string
      */
     private $facebookUid;
 
     /**
-     * @Column(type="string", nullable=true)
+     * @Column(type="string", nullable=true, unique=true)
      * @var string
      */
     private $googleUid;
 
     /**
-     * @Column(type="string", nullable=true)
+     * @Column(type="string", nullable=true, unique=true)
      * @var string
      */
     private $githubUid;
