@@ -13,7 +13,7 @@ if (!isset($app)) {
 $app->register(new ServiceControllerServiceProvider());
 
 // Include the authentication and authorization configuration
-require __DIR__.'/../config/auth.php';
+// require __DIR__.'/../config/auth.php';
 
 $app['homepage.controller'] = $app->share(function() {
     return new HomepageController();

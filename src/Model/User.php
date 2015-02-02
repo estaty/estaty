@@ -31,7 +31,7 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @Column(type="string")
+     * @Column(type="string", nullable=true)
      * @var string
      */
     private $name;
@@ -71,7 +71,7 @@ class User implements UserInterface
      */
     private $githubUid;
 
-    public function __construct($id, $email, $password, $name, array $roles = [])
+    public function __construct($id, $email, $password, $name = null, array $roles = [])
     {
         $this->id = $id;
         $this->setEmail($email);

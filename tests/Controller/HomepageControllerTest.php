@@ -2,21 +2,20 @@
 
 namespace Estaty\Test\Controller;
 
-use Estaty\Test\TestCase;
-use Estaty\Controller\HomepageController;
-
 /**
  * @coversDefaultClass Estaty\Controller\HomepageController
  */
-class HomepageControllerTest extends TestCase
+class HomepageControllerTest extends ControllerTestCase
 {
     /**
      * @covers ::show
      */
     public function testShow()
     {
-        $controller = new HomepageController();
-        $homepage = (string) $controller->show($this->app);
-        $this->assertContains('Hello, Lovely apartment!', $homepage);
+        $crawler = $this->client->request('GET', '/');
+
+        $response = $this->client->getResponse();
+        $this->assertTrue($response->isOk());
+        $this->assertContains('Hello, Lovely apartment!', $crawler->filter('body')->text());
     }
 }

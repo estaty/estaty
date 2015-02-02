@@ -30,6 +30,8 @@ class AuthController
      */
     public function loginForm(Request $request)
     {
+        print_r($this->app['session']->get('_security_default'));
+
         $user = $this->getEmptyUser();
 
         return $this->getLoginFormResponse($user);
@@ -96,19 +98,19 @@ class AuthController
             $loginSignupForm = $this->getLoginSignupForm($user);
         }
 
-        return $this->app['twig']->render('login.twig', array(
+        return $this->app['twig']->render('login.twig', [
             'login_paths' => array_map(function ($service) {
-                return $this->app['url_generator']->generate('_auth_service', array(
+                return $this->app['url_generator']->generate($this->app['oauth.login_route'], [
                     'service' => $service,
                     '_csrf_token' => $this->app['form.csrf_provider']->generateCsrfToken('oauth')
-                ));
+                ]);
             }, array_combine($services, $services)),
-            'logout_path' => $this->app['url_generator']->generate('logout', array(
+            'logout_path' => $this->app['url_generator']->generate('logout', [
                 '_csrf_token' => $this->app['form.csrf_provider']->generateCsrfToken('logout')
-            )),
+            ]),
             'error' => $this->app['security.last_error']($this->app['request']),
             'loginSignupForm' => $loginSignupForm->createView(),
-        ));
+        ]);
     }
 
     private function getLoginSignupForm(User $user)

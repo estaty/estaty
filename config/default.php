@@ -7,6 +7,7 @@ use Silex\Provider\ServiceControllerServiceProvider;
 
 $app['route_class'] = '\\Estaty\\Route';
 
+require 'auth.php';
 require 'twig.php';
 require 'db.php';
 

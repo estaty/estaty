@@ -18,6 +18,17 @@ if (file_exists(__DIR__.'/secret/form.'.$app['env'].'.php')) {
 } else {
     include_once __DIR__.'/secret/form.php';
 }
+
+// Provides CSRF token generation
+$app->register(new FormServiceProvider(), [
+    'form.secret' => FORM_SECRET,
+]);
+
+// Provides session storage
+$app->register(new SessionServiceProvider(), [
+    'session.storage.save_path' => sys_get_temp_dir(),
+]);
+
 $app->register(new OAuthServiceProvider(), [
     'oauth.services' => [
         User::FACEBOOK => [
@@ -43,16 +54,6 @@ $app->register(new OAuthServiceProvider(), [
             'class' => 'OAuth\OAuth2\Service\GitHub',
         ],
     ],
-]);
-
-// Provides CSRF token generation
-$app->register(new FormServiceProvider(), [
-    'form.secret' => FORM_SECRET,
-]);
-
-// Provides session storage
-$app->register(new SessionServiceProvider(), [
-    'session.storage.save_path' => sys_get_temp_dir(),
 ]);
 
 $app->register(new SecurityServiceProvider(), [
