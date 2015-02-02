@@ -12,14 +12,26 @@
         "php": ">=5.4.0",
         "silex/silex": "~1.2",
         "twig/twig": "~1.15.1",
-        "monolog/monolog": "~1.9.1",
+        "monolog/monolog": "~1.11",
         "doctrine/orm": "~2.4.6",
         "doctrine/migrations": "1.0.*@dev",
-        "kurl/silex-doctrine-migrations-provider": "0.1.*"
+        "kurl/silex-doctrine-migrations-provider": "0.1.*",
+        "gigablah/silex-oauth": "0.1.*",
+        "symfony/form": "~2.3",
+        "symfony/security": "~2.3",
+        "lusitanian/oauth": "0.3.*",
+        "ircmaxell/password-compat": "~1.0",
+        "symfony/translation": "~2.6",
+        "symfony/validator": "~2.6",
+        "symfony/doctrine-bridge": "~2.6",
+        "symfony/config": "~2.6",
+        "symfony/monolog-bridge": "~2.6"
     },
     "require-dev": {
         "silex/web-profiler": "~1.0.3",
-        "phpunit/phpunit": "~4.4"
+        "phpunit/phpunit": "~4.6@dev",
+        "symfony/browser-kit": "~2.6",
+        "symfony/css-selector": "~2.6"
     },
     "autoload": {
         "psr-4": {
@@ -32,8 +44,8 @@
         }
     },
     "scripts": {
-        "test": "phpunit",
-        "test-coverage": "phpunit --coverage-html=build/coverage",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --coverage-html=build/coverage --colors=always",
         "test-ci": "phpunit --coverage-clover=build/coverage.clover"
     }
 }

@@ -27,9 +27,16 @@
          <exclude>
              <file>src/app.php</file>
              <file>src/controllers.php</file>
+             <file>src/Validator/Constraints/UniqueEntityValidator.php</file>
          </exclude>
       </whitelist>
    </filter>
+   <logging>
+     <log type="coverage-html" target="build/coverage" charset="UTF-8"
+         logIncompleteSkipped="true" highlight="true"
+         lowUpperBound="80" highLowerBound="90" showUncoveredFiles="true"
+         addUncoveredFilesFromWhitelist="true" />
+   </logging>
    <php>
        <env name="ESTATY_ENV" value="test"/>
        <ini name="display_errors" value="1"/>

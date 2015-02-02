@@ -12,8 +12,8 @@ class HomepageController
         $property = new Apartment();
         $property->setName('Lovely apartment');
 
-        return $app->render('homepage.html.twig', array(
+        return $app->render('homepage.twig', [
             'property' => $property
-        ));
+        ]);
     }
 }

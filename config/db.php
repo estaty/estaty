@@ -3,13 +3,19 @@
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
+if (file_exists(__DIR__.'/secret/db.'.$app['env'].'.php')) {
+    include_once __DIR__.'/secret/db.'.$app['env'].'.php';
+} else {
+    include_once __DIR__.'/secret/db.php';
+}
+
 // the connection configuration
-$app['db.options'] = array(
-    'driver'   => 'pdo_mysql',
-    'user'     => 'vagrant',
-    'password' => null,
-    'dbname'   => 'estaty',
-);
+$app['db.options'] = [
+    'driver'   => DB_DRIVER,
+    'user'     => DB_USER,
+    'password' => DB_PASSWORD,
+    'dbname'   => DB_NAME,
+];
 
 $paths = [__DIR__.'/../src/Model'];
 $isDevMode = !empty($app['debug']);
