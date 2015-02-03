@@ -50,6 +50,11 @@ Openness brings fairness.
 -------------------------'
 
 -------------------------.
+  Floor number OR        | # If an apartment or house floor - not because it's part of an address, but a factor in pricing and taxes
+  Number of floors       | # If a house - important because the area is not sufficient
+-------------------------'
+
+-------------------------.
   Like it or not         | # Thumbs up or thumbs down
 -------------------------'
 
