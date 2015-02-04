@@ -1,0 +1,75 @@
+Data model
+==========
+
+User
+~~~~~
+id -----------•
+email         |
+password      |
+facebookUid   |
+googleUid     |
+twitterUid    |
+githubUid     |
+roles         |
+name          |
+ip            |
+countryId ----+----------------•
+              |                |
+              |                |
+Property      |                |
+~~~~~~~~~     |                |
+id            |                |
+creatorId ----•                |
+price                          |
+currencyId ---------------•    |
+priceUsd                  |    |
+locationId -----------•   |    |
+primaryTypeId ----•   |   |    |
+secondaryTypeId --•   |   |    |
+area              |   |   |    |
+areaUnit          |   |   |    |
+floorNumber       |   |   |    |
+floorsCount       |   |   |    |
+isLiked           |   |   |    |
+                  |   |   |    |
+                  |   |   |    |
+Property Type     |   |   |    |
+~~~~~~~~~~~~~~    |   |   |    |
+id ---------------•   |   |    |
+name              |   |   |    |
+parentId ---------•   |   |    |
+slug                  |   |    |
+                      |   |    |
+                      |   |    |
+Location              |   |    |
+~~~~~~~~~             |   |    |
+id -------------------•   |    |
+address                   |    |
+countryId -------•        |    |
+cityId -----•    |        |    |
+latitude    |    |        |    |
+longitude   |    |        |    |
+            |    |        |    |
+            |    |        |    |
+City        |    |        |    |
+~~~~~       |    |        |    |
+id ---------•    |        |    |
+name             |        |    |
+countryId -------•        |    |
+                 |        |    |
+                 |        |    |
+Country          |        |    |
+~~~~~~~~         |        |    |
+id --------------•--------+----•
+shortCode                 |
+name                      |
+languageCode              |
+defaultCurrencyId --------•
+areaUnit                  |
+                          |
+                          |
+Currency                  |
+~~~~~~~~~                 |
+id -----------------------•
+code
+precision
