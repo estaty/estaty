@@ -3,11 +3,9 @@
 namespace Estaty\Model\Property;
 
 /**
- * @Entity @Table(name="property")
- * @InheritanceType("SINGLE_TABLE")
- * @DiscriminatorColumn(name="type")
+ * @Entity
  */
-abstract class Property
+class Property
 {
     /**
      * @Id @Column(type="integer") @GeneratedValue
@@ -31,11 +29,6 @@ abstract class Property
     public function getName()
     {
         return $this->name;
-    }
-
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**

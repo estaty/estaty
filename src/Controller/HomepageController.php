@@ -3,13 +3,13 @@
 namespace Estaty\Controller;
 
 use Estaty\Application;
-use Estaty\Model\Property\Apartment\Apartment;
+use Estaty\Model\Property\Property;
 
 class HomepageController
 {
     public function show(Application $app)
     {
-        $property = new Apartment();
+        $property = new Property();
         $property->setName('Lovely apartment');
 
         return $app->render('homepage.twig', [
