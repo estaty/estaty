@@ -24,8 +24,8 @@ price                          |
 currencyId ---------------•    |
 priceUsd                  |    |
 locationId -----------•   |    |
+typeId -----------•   |   |    |
 primaryTypeId ----•   |   |    |
-secondaryTypeId --•   |   |    |
 area              |   |   |    |
 areaUnit          |   |   |    |
 floorNumber       |   |   |    |
