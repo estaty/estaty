@@ -4,13 +4,15 @@ namespace Estaty\Controller;
 
 use Estaty\Application;
 use Estaty\Model\Property\Property;
+use Estaty\Model\Property\PropertyType;
 
 class HomepageController
 {
     public function show(Application $app)
     {
-        $property = new Property();
-        $property->setName('Lovely apartment');
+        $apartmentType = new PropertyType('Apartment', 'apartment');
+        $property = new Property($apartmentType);
+        $property->setName('Lovely');
 
         return $app->render('homepage.twig', [
             'property' => $property

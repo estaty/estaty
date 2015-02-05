@@ -2,6 +2,7 @@
 
 namespace Estaty\Model;
 
+use Estaty\Model\Property\Property;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -70,6 +71,11 @@ class User implements UserInterface
      * @var string
      */
     private $githubUid;
+
+    /**
+     * @OneToMany(targetEntity="Estaty\Model\Property\Property", mappedBy="creator")
+     */
+    protected $properties;
 
     public function __construct($id, $email, $password, $name = null, array $roles = [])
     {
