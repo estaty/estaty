@@ -29,15 +29,15 @@ class PropertyType
     private $slug;
 
     /**
-     * @OneToOne(targetEntity="PropertyType")
-     * @JoinColumn(name="parentId", referencedColumnName="id")
-     */
-    private $parent;
-
-    /**
      * @OneToMany(targetEntity="PropertyType", mappedBy="parent")
      */
     private $children;
+
+    /**
+     * @ManyToOne(targetEntity="PropertyType", inversedBy="children")
+     * @JoinColumn(name="parentId", referencedColumnName="id")
+     */
+    private $parent;
 
     /**
      * @OneToMany(targetEntity="Property", mappedBy="type")
