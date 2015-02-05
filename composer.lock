@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "191898d0f5535884ee7c8d790b01ecc4",
+    "hash": "db7bd2a1bdb847459f11f7e2d2f0c887",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -687,16 +687,16 @@
         },
         {
             "name": "kurl/silex-doctrine-migrations-provider",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kurlltd/silex-doctrine-migrations-provider.git",
-                "reference": "67c5217fff0f4fb7725f6164f7df11c11a51fb95"
+                "reference": "de4ddb611894a3fabc95340d578ed41d03875eb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kurlltd/silex-doctrine-migrations-provider/zipball/67c5217fff0f4fb7725f6164f7df11c11a51fb95",
-                "reference": "67c5217fff0f4fb7725f6164f7df11c11a51fb95",
+                "url": "https://api.github.com/repos/kurlltd/silex-doctrine-migrations-provider/zipball/de4ddb611894a3fabc95340d578ed41d03875eb7",
+                "reference": "de4ddb611894a3fabc95340d578ed41d03875eb7",
                 "shasum": ""
             },
             "require": {
@@ -705,6 +705,7 @@
             "require-dev": {
                 "doctrine/dbal": "2.2.*",
                 "doctrine/migrations": "1.0.*@dev",
+                "doctrine/orm": "~2.2",
                 "phpunit/phpunit": "~3.7",
                 "silex/silex": "~1.0",
                 "symfony/console": "~2.3"
@@ -720,7 +721,7 @@
                 "MIT"
             ],
             "description": "A doctrine migrations provider for silex",
-            "time": "2014-12-15 15:41:45"
+            "time": "2014-12-22 14:59:33"
         },
         {
             "name": "lusitanian/oauth",
