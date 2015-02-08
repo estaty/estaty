@@ -13,21 +13,22 @@ githubUid     |
 roles         |
 name          |
 ip            |
-countryId ----+----------------•
-              |                |
-              |                |
-Property      |                |
-~~~~~~~~~     |                |
-id            |                |
-creatorId ----•                |
-price                          |
-currencyId ---------------•    |
+countryId ----+-----------•
+              |           |
+              |           |
+Property      |           |
+~~~~~~~~~     |           |
+id            |           |
+creatorId ----•           |
+price                     |
+currency -----------------+----•
 priceUsd                  |    |
 locationId -----------•   |    |
 typeId -----------•   |   |    |
 primaryTypeId ----•   |   |    |
 area              |   |   |    |
 areaUnit          |   |   |    |
+areaMeters        |   |   |    |
 floorNumber       |   |   |    |
 floorsCount       |   |   |    |
 isLiked           |   |   |    |
@@ -45,31 +46,24 @@ Location              |   |    |
 ~~~~~~~~~             |   |    |
 id -------------------•   |    |
 address                   |    |
-countryId -------•        |    |
-cityId -----•    |        |    |
-latitude    |    |        |    |
-longitude   |    |        |    |
-            |    |        |    |
-            |    |        |    |
-City        |    |        |    |
-~~~~~       |    |        |    |
-id ---------•    |        |    |
-name             |        |    |
-countryId -------•        |    |
-                 |        |    |
-                 |        |    |
-Country          |        |    |
-~~~~~~~~         |        |    |
-id --------------•--------+----•
-shortCode                 |
-name                      |
-languageCode              |
-defaultCurrencyId --------•
-areaUnit                  |
-                          |
-                          |
-Currency                  |
-~~~~~~~~~                 |
-id -----------------------•
-code
-precision
+countryId ----------------•    |
+cityId -----•             |    |
+latitude    |             |    |
+longitude   |             |    |
+            |             |    |
+            |             |    |
+City        |             |    |
+~~~~~       |             |    |
+id ---------•             |    |
+name                      |    |
+countryId ----------------•    |
+                          |    |
+                          |    |
+Country                   |    |
+~~~~~~~~                  |    |
+id -----------------------•    |
+shortCode                      |
+name                           |
+languageCode                   |
+defaultCurrency ---------------•
+areaUnit
