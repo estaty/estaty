@@ -34,7 +34,7 @@ class Country
     private $languageCode;
 
     /**
-     * @Column(type="string")
+     * @Column(type="string", length=3)
      * @var string
      */
     private $defaultCurrency;

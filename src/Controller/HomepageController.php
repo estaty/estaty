@@ -13,6 +13,7 @@ class HomepageController
         $apartmentType = new PropertyType('Apartment', 'apartment');
         $property = new Property($apartmentType);
         $property->setName('Lovely');
+        $property->setPriceUsd(50);
 
         return $app->render('homepage.twig', [
             'property' => $property

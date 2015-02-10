@@ -51,6 +51,23 @@ class Property
      */
     private $location;
 
+    /**
+     * @Column(type="decimal", name="price", precision=12, scale=2)
+     * @var float
+     */
+    private $price;
+
+    /**
+     * @Column(type="decimal", name="priceUsd", precision=12, scale=2)
+     * @var float
+     */
+    private $priceUsd;
+
+    /**
+     * @Column(type="string", name="currency", length=3)
+     * @var string
+     */
+    private $currency;
 
     /**
      * @param string $primaryType
@@ -154,6 +171,51 @@ class Property
     public function setLocation(Location $location)
     {
         $this->location = $location;
+
+        return $this;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getPriceUsd()
+    {
+        return $this->priceUsd;
+    }
+
+    /**
+     * @param float $price
+     */
+    public function setPriceUsd($priceUsd)
+    {
+        $this->priceUsd = $priceUsd;
+
+        return $this;
+    }
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string $currency
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
 
         return $this;
     }
