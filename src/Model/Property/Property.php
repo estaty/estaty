@@ -13,7 +13,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Property
 {
     /**
-     * @Id @Column(type="integer") @GeneratedValue
+     * @Id
+     * @Column(type="integer")
+     * @GeneratedValue
      * @var int
      */
     private $id;
@@ -52,22 +54,37 @@ class Property
     private $location;
 
     /**
-     * @Column(type="decimal", name="price", precision=12, scale=2)
+     * @Column(type="decimal", precision=12, scale=2)
      * @var float
      */
     private $price;
 
     /**
-     * @Column(type="decimal", name="priceUsd", precision=12, scale=2)
+     * @Column(type="decimal", precision=12, scale=2)
      * @var float
      */
     private $priceUsd;
 
     /**
-     * @Column(type="string", name="currency", length=3)
+     * @Column(type="string", length=3)
      * @var string
      */
     private $currency;
+
+    /**
+     * @Column(type="decimal", precision=12, scale=2, nullable=true)
+     */
+    private $area;
+
+    /**
+     * @Column(type="string", nullable=true)
+     */
+    private $areaUnit;
+
+    /**
+     * @Column(type="decimal", precision=12, scale=2, nullable=true)
+     */
+    private $areaMeters;
 
     /**
      * @param string $primaryType
@@ -216,6 +233,42 @@ class Property
     public function setCurrency($currency)
     {
         $this->currency = $currency;
+
+        return $this;
+    }
+
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    public function setArea($area)
+    {
+        $this->area = $area;
+
+        return $this;
+    }
+
+    public function getAreaMeters()
+    {
+        return $this->areaMeters;
+    }
+
+    public function setAreaMeters($areaMeters)
+    {
+        $this->areaMeters = $areaMeters;
+
+        return $this;
+    }
+
+    public function getAreaUnit()
+    {
+        return $this->areaUnit;
+    }
+
+    public function setAreaUnit($areaUnit)
+    {
+        $this->areaUnit = $areaUnit;
 
         return $this;
     }
