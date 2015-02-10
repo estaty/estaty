@@ -75,7 +75,14 @@ class User implements UserInterface
     /**
      * @OneToMany(targetEntity="Estaty\Model\Property\Property", mappedBy="creator")
      */
-    protected $properties;
+    private $properties;
+
+    /**
+     * @ManyToOne(targetEntity="Estaty\Model\Location\Country")
+     * @JoinColumn(name="countryId")
+     */
+    private $country;
+
 
     public function __construct($id, $email, $password, $name = null, array $roles = [])
     {
@@ -265,6 +272,16 @@ class User implements UserInterface
         }
 
         return $this->{'set'.ucfirst($serviceName).'Uid'}($uid);
+    }
+
+    public function getProperties()
+    {
+        return $this->properties;
+    }
+
+    public function getCountry()
+    {
+        return $this->country;
     }
 
     /**

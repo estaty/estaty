@@ -3,6 +3,7 @@
 namespace Estaty\Model\Property;
 
 use Estaty\Model\User;
+use Estaty\Model\Location\Location;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -42,7 +43,14 @@ class Property
      * @JoinColumn(name="creatorId", referencedColumnName="id")
      * @var Estaty\Model\User
      */
-    protected $creator;
+    private $creator;
+
+    /**
+     * @ManyToOne(targetEntity="Estaty\Model\Location\Location")
+     * @JoinColumn(name="locationId")
+     */
+    private $location;
+
 
     /**
      * @param string $primaryType
@@ -134,6 +142,18 @@ class Property
     public function setCreator(User $user)
     {
         $this->creator = $user;
+
+        return $this;
+    }
+
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    public function setLocation(Location $location)
+    {
+        $this->location = $location;
 
         return $this;
     }
