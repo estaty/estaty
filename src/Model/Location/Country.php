@@ -2,11 +2,18 @@
 
 namespace Estaty\Model\Location;
 
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @Entity
  */
 class Country
 {
+    const SQUARE_METERS = 'square meters';
+
+    const SQUARE_FEET   = 'square feet';
+
     /**
      * @Id
      * @Column(type="integer")
@@ -64,6 +71,29 @@ class Country
         $this->languageCode = $languageCode;
         $this->defaultCurrency = $defaultCurrency;
         $this->areaUnit = $areaUnit;
+    }
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraints('name', [
+            new Assert\NotBlank(),
+        ]);
+
+        $metadata->addPropertyConstraints('shortCode', [
+            new Assert\NotBlank(),
+        ]);
+
+        $metadata->addPropertyConstraints('defaultCurrency', [
+            new Assert\NotBlank(),
+        ]);
+
+        $metadata->addPropertyConstraints('areaUnit', [
+            new Assert\NotBlank(),
+            new Assert\Choice([
+                static::SQUARE_METERS,
+                static::SQUARE_FEET,
+            ])
+        ]);
     }
 
     public function getId()
