@@ -94,6 +94,9 @@ class Property
         $this->setType($type);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraints('primaryType', [
@@ -153,19 +156,15 @@ class Property
 
     public function isType(PropertyType $type)
     {
-        if (!$this->type) {
-            return false;
-        }
-
-        if ($type->getId() === $this->type->getId()) {
+        if ($type->getSlug() === $this->type->getSlug()) {
             return true;
         }
 
-        if (!$this->type->parent) {
+        if (!$this->type->getParent()) {
             return false;
         }
 
-        return $type->getId() === $this->type->parent->getId();
+        return $type->getSlug() === $this->type->getParent()->getSlug();
     }
 
     public function getCreator()
@@ -242,6 +241,9 @@ class Property
         return $this->area;
     }
 
+    /**
+     * @param integer $area
+     */
     public function setArea($area)
     {
         $this->area = $area;
@@ -266,6 +268,9 @@ class Property
         return $this->areaUnit;
     }
 
+    /**
+     * @param string $areaUnit
+     */
     public function setAreaUnit($areaUnit)
     {
         $this->areaUnit = $areaUnit;

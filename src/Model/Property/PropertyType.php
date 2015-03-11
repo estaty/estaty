@@ -4,6 +4,8 @@ namespace Estaty\Model\Property;
 
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @Entity
@@ -50,11 +52,15 @@ class PropertyType
         $this->name = $name;
         $this->slug = $slug;
 
-        if ($this->parent) {
+        if ($parent) {
             $this->parent = $parent;
+            $this->parent->getChildren()->add($this);
         }
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addConstraint(new UniqueEntity([
