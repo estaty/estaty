@@ -10,14 +10,13 @@ use Estaty\Model\User;
  */
 class UserTest extends TestCase
 {
-    const ID = 1;
     const EMAIL = 'john.doe@example.com';
     const PASSWORD = '12345678';
     const NAME = 'John Doe';
 
     public function getUser()
     {
-        return new User(self::ID, self::EMAIL, self::PASSWORD, self::NAME, [
+        return new User(self::EMAIL, self::PASSWORD, self::NAME, [
             'ROLE_USER'
         ]);
     }
@@ -26,18 +25,18 @@ class UserTest extends TestCase
      */
     public function testConstructor()
     {
-        $user = new User(self::ID, self::EMAIL, self::PASSWORD, self::NAME);
-        $this->assertEquals(self::ID, $user->getId());
+        $user = new User(self::EMAIL, self::PASSWORD, self::NAME);
+        $this->assertNull($user->getId());
         $this->assertEquals(self::EMAIL, $user->getEmail());
         $this->assertEquals(self::PASSWORD, $user->getPassword());
         $this->assertEquals(self::NAME, $user->getName());
         $this->assertEquals(self::EMAIL, $user->getUsername());
         $this->assertEquals([], $user->getRoles());
 
-        $user = new User(null, self::EMAIL, self::PASSWORD, self::NAME, [
+        $user = new User(self::EMAIL, self::PASSWORD, self::NAME, [
             'ROLE_USER',
         ]);
-        $this->assertEquals(null, $user->getId());
+        $this->assertNull($user->getId());
         $this->assertEquals(['ROLE_USER'], $user->getRoles());
     }
 
@@ -47,7 +46,7 @@ class UserTest extends TestCase
     public function testGetId()
     {
         $user = $this->getUser();
-        $this->assertEquals(self::ID, $user->getId());
+        $this->assertNull($user->getId());
     }
 
     /**

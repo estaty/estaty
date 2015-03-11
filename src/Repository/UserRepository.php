@@ -139,7 +139,6 @@ class UserRepository extends EntityRepository implements UserProviderInterface, 
     private function createUserFromOAuthToken(OAuthTokenInterface $token)
     {
         $user = new User(
-            null,
             $token->getEmail(),
             null,
             $token->getUser(),
