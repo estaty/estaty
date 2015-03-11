@@ -45,7 +45,7 @@
     },
     "scripts": {
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --coverage-html=build/coverage --colors=always",
-        "test-ci": "phpunit --coverage-clover=build/coverage.clover"
+        "test-coverage": "phpunit --coverage-html=build/coverage --coverage-text --colors=always",
+        "test-ci": "phpunit --coverage-clover=build/coverage.clover --coverage-text"
     }
 }
