@@ -84,15 +84,17 @@ class User implements UserInterface
     private $country;
 
 
-    public function __construct($id, $email, $password, $name = null, array $roles = [])
+    public function __construct($email, $password, $name = null, array $roles = [])
     {
-        $this->id = $id;
         $this->setEmail($email);
         $this->setPassword($password);
         $this->setName($name);
         $this->setRoles($roles);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addConstraint(new UniqueEntity([

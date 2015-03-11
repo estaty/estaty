@@ -8,7 +8,8 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @Entity @HasLifecycleCallbacks
+ * @Entity
+ * @HasLifecycleCallbacks
  */
 class Property
 {

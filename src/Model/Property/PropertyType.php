@@ -13,7 +13,9 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class PropertyType
 {
     /**
-     * @Id @Column(type="integer") @GeneratedValue
+     * @Id
+     * @Column(type="integer")
+     * @GeneratedValue
      * @var int
      */
     private $id;
