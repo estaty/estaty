@@ -4,6 +4,8 @@ namespace Estaty\Test\Model\Property;
 
 use Estaty\Test\TestCase;
 use Estaty\Model\User;
+use Estaty\Model\Location\City;
+use Estaty\Model\Location\Country;
 use Estaty\Model\Location\Location;
 use Estaty\Model\Property\Property;
 use Estaty\Model\Property\PropertyType;
@@ -170,7 +172,9 @@ class PropertyTest extends TestCase
         $property = new Property(new PropertyType('house', 'house'));
         $this->assertNull($property->getLocation());
 
-        $location = new Location('', '', '');
+        $uk = new Country('United Kingdom', 'GB');
+        $london = new City('London', $uk);
+        $location = new Location($london, 'Baker Street 221B');
         $property->setLocation($location);
         $this->assertSame($location, $property->getLocation());
     }

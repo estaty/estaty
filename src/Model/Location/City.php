@@ -32,6 +32,8 @@ class City
     {
         $this->name = $name;
         $this->country = $country;
+
+        $this->country->getCities()->add($this);
     }
 
     public function getId()

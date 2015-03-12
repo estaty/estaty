@@ -71,8 +71,12 @@ class Country
         $this->languageCode = $languageCode;
         $this->defaultCurrency = $defaultCurrency;
         $this->areaUnit = $areaUnit;
+        $this->cities = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraints('name', [

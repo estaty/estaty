@@ -4,7 +4,6 @@ namespace Estaty\Test\Model\Property;
 
 use Estaty\Test\TestCase;
 use Estaty\Model\Property\PropertyType;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * @coversDefaultClass Estaty\Model\Property\PropertyType
