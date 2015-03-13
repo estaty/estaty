@@ -30,27 +30,28 @@ class Property
     /**
      * @ManyToOne(targetEntity="PropertyType")
      * @JoinColumn(name="primaryTypeId", referencedColumnName="id")
-     * @var Estaty\Model\Property\PropertyType
+     * @var \Estaty\Model\Property\PropertyType
      */
     private $primaryType;
 
     /**
      * @ManyToOne(targetEntity="PropertyType")
      * @JoinColumn(name="typeId", referencedColumnName="id")
-     * @var Estaty\Model\Property\PropertyType
+     * @var \Estaty\Model\Property\PropertyType
      */
     private $type;
 
     /**
      * @ManyToOne(targetEntity="Estaty\Model\User", inversedBy="properties")
      * @JoinColumn(name="creatorId", referencedColumnName="id")
-     * @var Estaty\Model\User
+     * @var \Estaty\Model\User
      */
     private $creator;
 
     /**
      * @ManyToOne(targetEntity="Estaty\Model\Location\Location")
      * @JoinColumn(name="locationId")
+     * @var \Estaty\Model\Location\Location
      */
     private $location;
 
@@ -74,16 +75,19 @@ class Property
 
     /**
      * @Column(type="decimal", precision=12, scale=2, nullable=true)
+     * @var float
      */
     private $area;
 
     /**
      * @Column(type="string", nullable=true)
+     * @var string
      */
     private $areaUnit;
 
     /**
      * @Column(type="decimal", precision=12, scale=2, nullable=true)
+     * @var float
      */
     private $areaMeters;
 
@@ -176,6 +180,7 @@ class Property
     public function setCreator(User $user)
     {
         $this->creator = $user;
+        $this->creator->getProperties()->add($this);
 
         return $this;
     }

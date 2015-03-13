@@ -2,6 +2,7 @@
 
 namespace Estaty\Model;
 
+use Estaty\Model\Location\Country;
 use Estaty\Model\Property\Property;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -27,7 +28,7 @@ class User implements UserInterface
      * @Id
      * @Column(type="integer")
      * @GeneratedValue
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -51,6 +52,7 @@ class User implements UserInterface
 
     /**
      * @Column(type="simple_array", name="roles", nullable=true)
+     * @var array
      */
     private $roles = [];
 
@@ -74,15 +76,16 @@ class User implements UserInterface
 
     /**
      * @OneToMany(targetEntity="Estaty\Model\Property\Property", mappedBy="creator")
+     * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $properties;
 
     /**
      * @ManyToOne(targetEntity="Estaty\Model\Location\Country")
      * @JoinColumn(name="countryId")
+     * @var \Estaty\Model\Location\Country
      */
     private $country;
-
 
     public function __construct($email, $password, $name = null, array $roles = [])
     {
@@ -90,6 +93,7 @@ class User implements UserInterface
         $this->setPassword($password);
         $this->setName($name);
         $this->setRoles($roles);
+        $this->properties = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -284,6 +288,13 @@ class User implements UserInterface
     public function getCountry()
     {
         return $this->country;
+    }
+
+    public function setCountry(Country $country)
+    {
+        $this->country = $country;
+
+        return $this;
     }
 
     /**

@@ -34,19 +34,16 @@ class PropertyType
 
     /**
      * @OneToMany(targetEntity="PropertyType", mappedBy="parent")
+     * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $children;
 
     /**
      * @ManyToOne(targetEntity="PropertyType", inversedBy="children")
      * @JoinColumn(name="parentId", referencedColumnName="id")
+     * @var \Estaty\Model\Property\PropertyType
      */
     private $parent;
-
-    /**
-     * @OneToMany(targetEntity="Property", mappedBy="type")
-     */
-    protected $properties;
 
     public function __construct($name, $slug, PropertyType $parent = null)
     {

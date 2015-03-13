@@ -2,8 +2,9 @@
 
 namespace Estaty\Test\Model\User;
 
-use Estaty\Test\TestCase;
 use Estaty\Model\User;
+use Estaty\Test\TestCase;
+use Estaty\Model\Location\Country;
 
 /**
  * @coversDefaultClass Estaty\Model\User
@@ -219,5 +220,32 @@ class UserTest extends TestCase
         $user = $this->getUser();
         $this->setExpectedException('OutOfBoundsException', 'NOT EXISTENT is not a supported OAuth service');
         $user->setOAuthServiceUid('NOT EXISTENT', '123');
+    }
+
+    /**
+     * @covers ::getCountry
+     * @covers ::setCountry
+     */
+    public function testGetAndSetCountry()
+    {
+        $user = $this->getUser();
+        $this->assertNull($user->getCountry());
+
+        $country = new Country('United Kingdom', 'GB');
+        $user->setCountry($country);
+        $this->assertSame($country, $user->getCountry());
+    }
+
+    /**
+     * @covers ::getProperties
+     */
+    public function testGetProperties()
+    {
+        $user = $this->getUser();
+        $this->assertInstanceOf(
+            '\Doctrine\Common\Collections\ArrayCollection',
+            $user->getProperties()
+        );
+        $this->assertCount(0, $user->getProperties());
     }
 }

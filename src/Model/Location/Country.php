@@ -18,7 +18,7 @@ class Country
      * @Id
      * @Column(type="integer")
      * @GeneratedValue
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -54,6 +54,7 @@ class Country
 
     /**
      * @OneToMany(targetEntity="Estaty\Model\Location\City", mappedBy="country")
+     * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $cities;
 

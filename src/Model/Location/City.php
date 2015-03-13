@@ -11,7 +11,7 @@ class City
      * @Id
      * @Column(type="integer")
      * @GeneratedValue
-     * @var integer
+     * @var int
      */
     private $id;
 
