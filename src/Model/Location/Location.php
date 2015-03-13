@@ -2,6 +2,7 @@
 
 namespace Estaty\Model\Location;
 
+use Estaty\Model\Location\City;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints as Assert;
 
