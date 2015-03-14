@@ -1,0 +1,70 @@
+Data model
+==========
+
+User
+~~~~~
+id -----------•
+email         |
+password      |
+facebookUid   |
+googleUid     |
+twitterUid    |
+githubUid     |
+roles         |
+name          |
+ip            |
+countryId ----+-----------•
+              |           |
+              |           |
+Property      |           |
+~~~~~~~~~     |           |
+id            |           |
+creatorId ----•           |
+price                     |
+currency -----------------+----•
+priceUsd                  |    |
+locationId -----------•   |    |
+typeId -----------•   |   |    |
+primaryTypeId ----•   |   |    |
+area              |   |   |    |
+areaUnit          |   |   |    |
+areaMeters        |   |   |    |
+floorNumber       |   |   |    |
+floorsCount       |   |   |    |
+isLiked           |   |   |    |
+                  |   |   |    |
+                  |   |   |    |
+Property Type     |   |   |    |
+~~~~~~~~~~~~~~    |   |   |    |
+id ---------------•   |   |    |
+name              |   |   |    |
+parentId ---------•   |   |    |
+slug                  |   |    |
+                      |   |    |
+                      |   |    |
+Location              |   |    |
+~~~~~~~~~             |   |    |
+id -------------------•   |    |
+address                   |    |
+countryId ----------------•    |
+cityId -----•             |    |
+postCode    |             |    |
+latitude    |             |    |
+longitude   |             |    |
+            |             |    |
+            |             |    |
+City        |             |    |
+~~~~~       |             |    |
+id ---------•             |    |
+name                      |    |
+countryId ----------------•    |
+                          |    |
+                          |    |
+Country                   |    |
+~~~~~~~~                  |    |
+id -----------------------•    |
+shortCode                      |
+name                           |
+languageCode                   |
+defaultCurrency ---------------•
+areaUnit

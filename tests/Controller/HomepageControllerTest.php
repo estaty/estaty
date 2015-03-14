@@ -16,6 +16,7 @@ class HomepageControllerTest extends ControllerTestCase
 
         $response = $this->client->getResponse();
         $this->assertTrue($response->isOk());
-        $this->assertContains('Hello, Lovely apartment!', $crawler->filter('body')->text());
+        $this->assertContains('Hello, World! I am Lovely Apartment!', $crawler->filter('body')->text());
+        $this->assertContains('I cost $50.00', $crawler->filter('body')->text());
     }
 }

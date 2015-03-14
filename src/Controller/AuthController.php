@@ -152,6 +152,6 @@ class AuthController
 
     private function getEmptyUser()
     {
-        return new User(null, $this->app['session']->get('_security.last_username'), null, null);
+        return new User($this->app['session']->get('_security.last_username'), null, null);
     }
 }

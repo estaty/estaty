@@ -1,6 +1,6 @@
 <phpunit
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.3/phpunit.xsd"
+   xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.5/phpunit.xsd"
    backupGlobals="true"
    backupStaticAttributes="false"
    colors="true"
@@ -14,7 +14,6 @@
    timeoutForSmallTests="1"
    timeoutForMediumTests="10"
    timeoutForLargeTests="60"
-   strict="false"
    verbose="false">
    <testsuites>
       <testsuite name="EstatyTestSuite">
@@ -31,12 +30,6 @@
          </exclude>
       </whitelist>
    </filter>
-   <logging>
-     <log type="coverage-html" target="build/coverage" charset="UTF-8"
-         logIncompleteSkipped="true" highlight="true"
-         lowUpperBound="80" highLowerBound="90" showUncoveredFiles="true"
-         addUncoveredFilesFromWhitelist="true" />
-   </logging>
    <php>
        <env name="ESTATY_ENV" value="test"/>
        <ini name="display_errors" value="1"/>

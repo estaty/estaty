@@ -38,7 +38,7 @@ class UserRepositoryTest extends TestCase
      */
     public function testLoadUserByUsername()
     {
-        $user = new User(null, null, null, null);
+        $user = new User(null, null, null);
         $repository = $this->getUserRepositoryMock(['loadUserByEmail']);
 
         $repository
@@ -76,7 +76,7 @@ class UserRepositoryTest extends TestCase
      */
     public function testLoadUserById()
     {
-        $user = new User(null, null, null, null);
+        $user = new User(null, null, null);
         $repository = $this->getUserRepositoryMock(['findOneBy']);
 
         $repository
@@ -94,7 +94,7 @@ class UserRepositoryTest extends TestCase
      */
     public function testLoadUserByEmail()
     {
-        $user = new User(null, null, null, null);
+        $user = new User(null, null, null);
         $repository = $this->getUserRepositoryMock(['findOneBy']);
 
         $repository
@@ -133,7 +133,7 @@ class UserRepositoryTest extends TestCase
             ->method('supportsClass')
             ->will($this->onConsecutiveCalls([true, false]));
 
-        $user = new User(null, 'john', null, null);
+        $user = new User('john', null, null);
 
         $repository
             ->expects($this->once())
@@ -162,7 +162,7 @@ class UserRepositoryTest extends TestCase
      */
     public function testLoadUserByOAuthUid()
     {
-        $user = new User(null, null, null, null);
+        $user = new User(null, null, null);
         $repository = $this->getUserRepositoryMock(['findOneBy']);
 
         $repository
@@ -200,7 +200,7 @@ class UserRepositoryTest extends TestCase
 
         $repository = $this->getUserRepositoryMock(['loadUserByOAuthUid']);
 
-        $user = new User(null, null, null, null);
+        $user = new User(null, null, null);
 
         $repository
             ->expects($this->once())

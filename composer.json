@@ -15,7 +15,7 @@
         "monolog/monolog": "~1.11",
         "doctrine/orm": "~2.4.6",
         "doctrine/migrations": "1.0.*@dev",
-        "kurl/silex-doctrine-migrations-provider": "0.1.*",
+        "kurl/silex-doctrine-migrations-provider": "~0.1.1",
         "gigablah/silex-oauth": "0.1.*",
         "symfony/form": "~2.3",
         "symfony/security": "~2.3",
@@ -45,7 +45,7 @@
     },
     "scripts": {
         "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --coverage-html=build/coverage --colors=always",
-        "test-ci": "phpunit --coverage-clover=build/coverage.clover"
+        "test-coverage": "phpunit --coverage-html=build/coverage --coverage-text --colors=always",
+        "test-ci": "phpunit --coverage-clover=build/coverage.clover --coverage-text"
     }
 }

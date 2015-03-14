@@ -10,6 +10,6 @@ $app->register(new MonologServiceProvider(), [
     'monolog.name' => 'estaty',
 ]);
 
-require __DIR__.'/../config/'.$app['env'].'.php';
+require $app['env'].'.php';
 
 require 'errors.php';

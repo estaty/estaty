@@ -1,0 +1,67 @@
+Enlist your property
+====================
+
+-------------------------.
+* Email                  |
+-------------------------'
+
+Provide a real email. It will be only used for communication with you and will not be shared.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The data below would be anonymized and shared with the public for the common good.
+Openness brings fairness.
+
+-------------------------.
+* ( ) Apartment          | # Radio buttons - whether you live in an apartment or a house
+  ( ) House              | # The interface could look like big buttons instead of radio inputs
+                         | # If you select apartment - room, studio, apartment, maisonette (optional)
+  Secondary type         | # If you select house     - room, house floor (optional)
+-------------------------'
+
+-------------------------.
+* ( ) Rent OR ( ) Own    | # Radio buttons - whether you own or rent the property
+-------------------------'
+
+-------------------------.
+* Price                  | # Price per month if renting, total if owning
+                         |
+* Currency               | # Currency defaults to country currency
+-------------------------'
+
+-------------------------.
+* Country                |
+                         | # Both selected by default based on IP
+* City                   |
+-------------------------'
+
+-------------------------.
+* Address                |
+                         | # Marker dragging, Geolocation etc.
+  Map                    | # Result: address, and optiontally longitude and latitude
+-------------------------'
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~ # Separator for optional content
+
+-------------------------.
+  Area                   | # Just a number
+                         |
+  Area units             | # Units: sq. feet or sq. meters - selected by default based on country
+-------------------------'
+
+-------------------------.
+  Floor number OR        | # If an apartment or house floor - not because it's part of an address, but a factor in pricing and taxes
+  Number of floors       | # If a house - important because the area is not sufficient
+-------------------------'
+
+-------------------------.
+  Like it or not         | # Thumbs up or thumbs down
+-------------------------'
+
+[ ] I agree this data would be shared with others
+
+==========
+| Submit |
+==========
+
+Please provide correct information. It is meant for the people.
