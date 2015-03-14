@@ -92,7 +92,7 @@ class Property
     private $areaMeters;
 
     /**
-     * @param string $primaryType
+     * @param \Estaty\Model\Property\PropertyType $type the most concrete property type
      */
     public function __construct(PropertyType $type)
     {
@@ -218,7 +218,7 @@ class Property
     }
 
     /**
-     * @param float $price
+     * @param float $priceUsd
      */
     public function setPriceUsd($priceUsd)
     {
@@ -248,7 +248,7 @@ class Property
     }
 
     /**
-     * @param integer $area
+     * @param float $area
      */
     public function setArea($area)
     {
