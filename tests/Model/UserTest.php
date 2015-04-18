@@ -21,6 +21,7 @@ class UserTest extends TestCase
             'ROLE_USER'
         ]);
     }
+
     /**
      * @covers ::__construct
      */
@@ -39,6 +40,20 @@ class UserTest extends TestCase
         ]);
         $this->assertNull($user->getId());
         $this->assertEquals(['ROLE_USER'], $user->getRoles());
+    }
+
+    /**
+     * @covers ::__construct
+     */
+    public function testConstructorMinimal()
+    {
+        $user = new User(self::EMAIL);
+        $this->assertNull($user->getId());
+        $this->assertEquals(self::EMAIL, $user->getEmail());
+        $this->assertEquals(self::EMAIL, $user->getUsername());
+        $this->assertNull($user->getPassword());
+        $this->assertNull($user->getName());
+        $this->assertEquals([], $user->getRoles());
     }
 
     /**

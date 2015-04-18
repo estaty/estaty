@@ -87,7 +87,7 @@ class User implements UserInterface
      */
     private $country;
 
-    public function __construct($email, $password, $name = null, array $roles = [])
+    public function __construct($email, $password = null, $name = null, array $roles = [])
     {
         $this->setEmail($email);
         $this->setPassword($password);
@@ -111,7 +111,6 @@ class User implements UserInterface
             new Assert\Email(),
         ]);
         $metadata->addPropertyConstraints('password', [
-            new Assert\NotBlank(),
             new Assert\Length([
                 'min' => 8,
             ]),
