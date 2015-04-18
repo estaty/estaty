@@ -108,6 +108,11 @@ class Property
             new Assert\NotBlank(),
         ]);
 
+        $metadata->addPropertyConstraints('creator', [
+            new Assert\Valid(),
+            new Assert\NotBlank(),
+        ]);
+
         $metadata->addPropertyConstraints('name', [
             new Assert\Length([
                 'max' => 150,
