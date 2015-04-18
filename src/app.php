@@ -14,6 +14,6 @@ require __DIR__.'/../config/env.php';
 require __DIR__.'/../config/default.php';
 
 // Include the web profiler after all is set up
-require __DIR__.'/../config/profiler.php';
+// require __DIR__.'/../config/profiler.php';
 
 return $app;
