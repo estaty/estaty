@@ -1,7 +1,6 @@
 <?php
 
-use Estaty\Controller\AuthController;
-use Estaty\Controller\HomepageController;
+use Estaty\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Silex\Provider\ServiceControllerServiceProvider;
 
@@ -13,10 +12,13 @@ if (!isset($app)) {
 $app->register(new ServiceControllerServiceProvider());
 
 $app['homepage.controller'] = $app->share(function() {
-    return new HomepageController();
+    return new Controller\HomepageController();
+});
+$app['properties.controller'] = $app->share(function() {
+    return new Controller\PropertiesController();
 });
 $app['auth.controller'] = $app->share(function() use ($app) {
-    return new AuthController($app);
+    return new Controller\AuthController($app);
 });
 
 $app->before(function (Request $request) use ($app) {
@@ -28,6 +30,8 @@ $app->before(function (Request $request) use ($app) {
     }
 });
 
+$app->get('/properties/new', 'properties.controller:initialForm')->bind('initialPropertyForm');
+$app->post('/properties', 'properties.controller:submitInitial')->bind('submitInitialProperty');
 $app->get('/', 'homepage.controller:show')->bind('homepage');
 $app->get('/login', 'auth.controller:loginForm')->bind('login');
 $app->post('/login', 'auth.controller:loginOrSignupCheck')->bind('loginOrSignupCheck');

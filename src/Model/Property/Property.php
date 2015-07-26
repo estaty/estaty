@@ -94,9 +94,12 @@ class Property
     /**
      * @param \Estaty\Model\Property\PropertyType $type the most concrete property type
      */
-    public function __construct(PropertyType $type)
+    public function __construct(PropertyType $type = null)
     {
-        $this->setType($type);
+        if ($type)
+        {
+            $this->setType($type);
+        }
     }
 
     /**

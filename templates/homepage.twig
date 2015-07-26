@@ -3,6 +3,5 @@
 {% block title %}Real Estate - Buy, Rent, Invest{% endblock %}
 
 {% block content %}
-<p>Hello, World! I am {{ property.name }} {{ property.primaryType.name }}!</p>
-<p>I cost ${{ property.priceUsd | number_format(2) }}</p>
+    {{ propertyForm | raw }}
 {% endblock %}

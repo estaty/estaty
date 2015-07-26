@@ -12,6 +12,14 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class PropertyType
 {
+    const APARTMENT      = 'Apartment';
+    const APARTMENT_ROOM = 'Apartment room';
+    const STUDIO         = 'Studio';
+    const MAISONETTE     = 'Maisonette';
+    const HOUSE          = 'House';
+    const HOUSE_ROOM     = 'House room';
+    const HOUSE_FLOOR    = 'House floor';
+
     /**
      * @Id
      * @Column(type="integer")

@@ -1,0 +1,45 @@
+<form action="{{ path('submitInitialProperty') }}" class="form">
+	<div class="form-group">
+		<label for="email">Email</label>
+		<input type="email" name="creator[email]" id="email" class="form-control" required autocomplete="email" />
+	</div>
+	<div class="form-group">
+		<label>Property type</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="type" required value="{{ constant('Estaty\\Model\\Property\\PropertyType::HOUSE') }}" />
+			{{ constant('Estaty\\Model\\Property\\PropertyType::HOUSE') }}
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="type" required value="{{ constant('Estaty\\Model\\Property\\PropertyType::APARTMENT_ROOM') }}" />
+			{{ constant('Estaty\\Model\\Property\\PropertyType::APARTMENT_ROOM') }}
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="type" required value="{{ constant('Estaty\\Model\\Property\\PropertyType::STUDIO') }}" />
+			{{ constant('Estaty\\Model\\Property\\PropertyType::STUDIO') }}
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="type" required value="{{ constant('Estaty\\Model\\Property\\PropertyType::MAISONETTE') }}" />
+			{{ constant('Estaty\\Model\\Property\\PropertyType::MAISONETTE') }}
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="type" required value="{{ constant('Estaty\\Model\\Property\\PropertyType::HOUSE_ROOM') }}" />
+			{{ constant('Estaty\\Model\\Property\\PropertyType::HOUSE_ROOM') }}
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="type" required value="{{ constant('Estaty\\Model\\Property\\PropertyType::HOUSE_FLOOR') }}" />
+			{{ constant('Estaty\\Model\\Property\\PropertyType::HOUSE_FLOOR') }}
+		</label>
+	</div>
+</form>
